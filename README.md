@@ -1,5 +1,16 @@
 # MagicaVoxel_File_Writer
 
+This is my (@unphased) fork and tweaks on @aiekick's .vox writer, I will have a few different
+interfaces, but first is a commandline program which performs a XYZP -> .vox format conversion. 
+
+The XYZP format is an ASCII file where each line specifies a voxel, each line contains exactly 3
+spaces and 4 integers, those integers being the X, Y, Z coordinates of the voxel and the last one
+being a 1-255 palette index.
+
+zsh:1: command not found: wq
+
+=============
+
 the extra tools like cAABBCC you see somewhere is the code, can be found in my repo here : https://github.com/aiekick/cTools
 
 vox.hm is the file format descriptor for HexaMonkey :
