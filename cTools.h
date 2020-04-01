@@ -380,81 +380,81 @@ public:
 ///////// cTexture //////////////////////////////////////////
 /////////////////////////////////////////////////////////////
 
-struct cTexture
-{
-public:
-	cTexture()
-	{
-		clear();
-	}
+// struct cTexture
+// {
+// public:
+// 	cTexture()
+// 	{
+// 		clear();
+// 	}
 
-	void clear()
-	{
-		format.clear();
-		relativPath.clear();
-		zOrder = 0;
-		w = h = d = x = y = z = 0;
+// 	void clear()
+// 	{
+// 		format.clear();
+// 		relativPath.clear();
+// 		zOrder = 0;
+// 		w = h = d = x = y = z = 0;
 
-#ifdef SDL2
-		surface = NULL;
-#endif
-		glTextureType = GL_TEXTURE_2D;
-		glTex = 0;
+// #ifdef SDL2
+// 		surface = NULL;
+// #endif
+// 		glTextureType = GL_TEXTURE_2D;
+// 		glTex = 0;
 
-		glformat = GL_RGBA;
-		glinternalformat = GL_RGBA32F;
-		gldatatype = GL_FLOAT;
+// 		glformat = GL_RGBA;
+// 		glinternalformat = GL_RGBA32F;
+// 		gldatatype = GL_FLOAT;
 
-		glWrapS = GL_CLAMP_TO_EDGE;
-		glWrapT = GL_CLAMP_TO_EDGE;
-		glWrapR = GL_CLAMP_TO_EDGE;
+// 		glWrapS = GL_CLAMP_TO_EDGE;
+// 		glWrapT = GL_CLAMP_TO_EDGE;
+// 		glWrapR = GL_CLAMP_TO_EDGE;
 
-		glMinFilter = GL_LINEAR;
-		glMagFilter = GL_LINEAR;
+// 		glMinFilter = GL_LINEAR;
+// 		glMagFilter = GL_LINEAR;
 
-		flipY = false;
-		useMipMap = false;
-		maxMipMapLvl = 0;
-	}
+// 		flipY = false;
+// 		useMipMap = false;
+// 		maxMipMapLvl = 0;
+// 	}
 
-public:
-	::std::string getString();
+// public:
+// 	::std::string getString();
 
-	::std::string format;
-	::std::string relativPath;
+// 	::std::string format;
+// 	::std::string relativPath;
 
-	bool flipY;
-	bool useMipMap;
-	int maxMipMapLvl;
+// 	bool flipY;
+// 	bool useMipMap;
+// 	int maxMipMapLvl;
 
-	GLenum glTextureType;
+// 	GLenum glTextureType;
 
-	GLenum glformat;
-	GLenum glinternalformat;
-	GLenum gldatatype;
+// 	GLenum glformat;
+// 	GLenum glinternalformat;
+// 	GLenum gldatatype;
 
-	GLenum glWrapS; // x
-	GLenum glWrapT; // y
-	GLenum glWrapR; // z
-	GLenum glMinFilter;
-	GLenum glMagFilter;
+// 	GLenum glWrapS; // x
+// 	GLenum glWrapT; // y
+// 	GLenum glWrapR; // z
+// 	GLenum glMinFilter;
+// 	GLenum glMagFilter;
 
-	size_t zOrder;
-	size_t w;
-	size_t h;
-	size_t d; // depth for texture 3d
-	size_t x;
-	size_t y;
-	size_t z; // depth for texture 3d
+// 	size_t zOrder;
+// 	size_t w;
+// 	size_t h;
+// 	size_t d; // depth for texture 3d
+// 	size_t x;
+// 	size_t y;
+// 	size_t z; // depth for texture 3d
 	
-#ifdef SDL2
-	SDL_Surface *surface;
-#endif
+// #ifdef SDL2
+// 	SDL_Surface *surface;
+// #endif
 
-	GLuint glTex;
+// 	GLuint glTex;
 
-	::std::vector<GLuint> glTexLayered;
-};
+// 	::std::vector<GLuint> glTexLayered;
+// };
 
 /////////////////////////////////////////////////////////////
 ///////// cColor ////////////////////////////////////////////
@@ -1457,7 +1457,7 @@ private:
 	long long_value = 0;
 	size_t size_t_value = 0;
 	cColor color_value;
-	cTexture texture_value;
+	// cTexture texture_value;
 	vec2<T> point_value;
 	vec3<T> v3_value;
 	vec4<T> rect_value;
@@ -1485,7 +1485,7 @@ public:
 	variant(const ::std::string& v) { string_value = v; inputtype = "string"; datatype = inputtype; }
 	variant(const bool& v) { bool_value = v; inputtype = "bool"; datatype = inputtype; }
 	variant(const cColor& c) { color_value = c; inputtype = "cColor"; datatype = inputtype; }
-	variant(const cTexture& c) { texture_value = c; inputtype = "cTexture"; datatype = inputtype; }
+	// variant(const cTexture& c) { texture_value = c; inputtype = "cTexture"; datatype = inputtype; }
 	variant(const vec2<T>& c) { point_value = c; inputtype = "vec2"; datatype = inputtype; }
 	variant(const vec3<T>& c) { v3_value = c; inputtype = "vec3"; datatype = inputtype; }
 	variant(const vec4<T>& c) { rect_value = c; inputtype = "vec4"; datatype = inputtype; }
@@ -1558,10 +1558,10 @@ public:
 		if (inputtype == "string") return cColor(string_value, c);
 		return color_value;
 	}
-	cTexture getTexture()
-	{
-		return texture_value;
-	}
+	// cTexture getTexture()
+	// {
+	// 	return texture_value;
+	// }
 	vec2<T> getV2(char c = ';')
 	{
 		if (inputtype == "string") return vec2<T>(string_value, c);

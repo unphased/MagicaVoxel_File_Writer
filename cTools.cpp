@@ -51,15 +51,16 @@ SOFTWARE.
 		while (end != ::std::string::npos)
 		{
 			::std::string token = text.substr(start, end - start);
-			if (token.size() > 0 || (token.empty() && pushEmpty))
+			if (token.size() > 0 || (token.empty() && pushEmpty)) {
 				if (vInversion)
-                {
-                    arr.push_front(token);
-                }
+				{
+					arr.push_front(token);
+				}
 				else
-                {
-				    arr.push_back(token);
-                }
+				{
+					arr.push_back(token);
+				}
+			}
 			start = end + 1;
 			end = text.find(delimiter, start);
 		}
@@ -314,58 +315,58 @@ bool ct::cActionTime::IsTimeToAct(long vMs, bool vFix)
 ///// cTexture //////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
 
-::std::string ct::cTexture::getString()
-{
-	::std::string res;
+// ::std::string ct::cTexture::getString()
+// {
+// 	::std::string res;
 
-	res += "----------------------------------------------\n";
+// 	res += "----------------------------------------------\n";
 	
-	if (glTextureType == GL_TEXTURE_1D)					res += "type = GL_TEXTURE_1D\n";
-	else if (glTextureType == GL_TEXTURE_2D)			res += "type = GL_TEXTURE_2D\n";
-	else if (glTextureType == GL_TEXTURE_3D)			res += "type = GL_TEXTURE_3D\n";
+// 	if (glTextureType == GL_TEXTURE_1D)					res += "type = GL_TEXTURE_1D\n";
+// 	else if (glTextureType == GL_TEXTURE_2D)			res += "type = GL_TEXTURE_2D\n";
+// 	else if (glTextureType == GL_TEXTURE_3D)			res += "type = GL_TEXTURE_3D\n";
 		
-	if (glformat == GL_RGBA)							res += "format = GL_RGBA\n";
-	else if (glformat == GL_RGB)						res += "format = GL_RGB\n";
+// 	if (glformat == GL_RGBA)							res += "format = GL_RGBA\n";
+// 	else if (glformat == GL_RGB)						res += "format = GL_RGB\n";
 
-	if (glinternalformat == GL_RGBA)					res += "internal format = GL_RGBA\n";
-	else if (glinternalformat == GL_RGBA32F)			res += "internal format = GL_RGBA32F\n";
+// 	if (glinternalformat == GL_RGBA)					res += "internal format = GL_RGBA\n";
+// 	else if (glinternalformat == GL_RGBA32F)			res += "internal format = GL_RGBA32F\n";
 
-	if (gldatatype == GL_FLOAT)							res += "Data Type = GL_FLOAT\n";
-	else if (gldatatype == GL_UNSIGNED_BYTE)			res += "Data Type = GL_UNSIGNED_BYTE\n";
+// 	if (gldatatype == GL_FLOAT)							res += "Data Type = GL_FLOAT\n";
+// 	else if (gldatatype == GL_UNSIGNED_BYTE)			res += "Data Type = GL_UNSIGNED_BYTE\n";
 
-	if (glWrapS == GL_CLAMP_TO_EDGE)					res += "Wrap S = GL_CLAMP_TO_EDGE\n";
-	else if (glWrapS == GL_REPEAT)						res += "Wrap S = GL_REPEAT\n";
-	else if (glWrapS == GL_MIRRORED_REPEAT)				res += "Wrap S = GL_MIRRORED_REPEAT\n";
+// 	if (glWrapS == GL_CLAMP_TO_EDGE)					res += "Wrap S = GL_CLAMP_TO_EDGE\n";
+// 	else if (glWrapS == GL_REPEAT)						res += "Wrap S = GL_REPEAT\n";
+// 	else if (glWrapS == GL_MIRRORED_REPEAT)				res += "Wrap S = GL_MIRRORED_REPEAT\n";
 
-	if (glWrapT == GL_CLAMP_TO_EDGE)					res += "Wrap T = GL_CLAMP_TO_EDGE\n";
-	else if (glWrapT == GL_REPEAT)						res += "Wrap T = GL_REPEAT\n";
-	else if (glWrapT == GL_MIRRORED_REPEAT)				res += "Wrap T = GL_MIRRORED_REPEAT\n";
+// 	if (glWrapT == GL_CLAMP_TO_EDGE)					res += "Wrap T = GL_CLAMP_TO_EDGE\n";
+// 	else if (glWrapT == GL_REPEAT)						res += "Wrap T = GL_REPEAT\n";
+// 	else if (glWrapT == GL_MIRRORED_REPEAT)				res += "Wrap T = GL_MIRRORED_REPEAT\n";
 
-	if (glWrapR == GL_CLAMP_TO_EDGE)					res += "Wrap R = GL_CLAMP_TO_EDGE\n";
-	else if (glWrapR == GL_REPEAT)						res += "Wrap R = GL_REPEAT\n";
-	else if (glWrapR == GL_MIRRORED_REPEAT)				res += "Wrap R = GL_MIRRORED_REPEAT\n";
+// 	if (glWrapR == GL_CLAMP_TO_EDGE)					res += "Wrap R = GL_CLAMP_TO_EDGE\n";
+// 	else if (glWrapR == GL_REPEAT)						res += "Wrap R = GL_REPEAT\n";
+// 	else if (glWrapR == GL_MIRRORED_REPEAT)				res += "Wrap R = GL_MIRRORED_REPEAT\n";
 
-	if (useMipMap)										res += "Use MipMap = True\n";
-	else												res += "Use MipMap = False\n";
+// 	if (useMipMap)										res += "Use MipMap = True\n";
+// 	else												res += "Use MipMap = False\n";
 
-	res += "MipMap Max Level = " + ct::toStr(maxMipMapLvl) + "\n";
+// 	res += "MipMap Max Level = " + ct::toStr(maxMipMapLvl) + "\n";
 
-	if (glMinFilter == GL_LINEAR)						res += "Min Filter = GL_LINEAR\n";
-	else if (glMinFilter == GL_NEAREST)					res += "Min Filter = GL_NEAREST\n";
-	else if (glMinFilter == GL_NEAREST_MIPMAP_NEAREST)	res += "Min Filter = GL_NEAREST_MIPMAP_NEAREST\n";
-	else if (glMinFilter == GL_LINEAR_MIPMAP_NEAREST)	res += "Min Filter = GL_LINEAR_MIPMAP_NEAREST\n";
-	else if (glMinFilter == GL_NEAREST_MIPMAP_LINEAR)	res += "Min Filter = GL_NEAREST_MIPMAP_LINEAR\n";
-	else if (glMinFilter == GL_LINEAR_MIPMAP_LINEAR)	res += "Min Filter = GL_LINEAR_MIPMAP_LINEAR\n";
+// 	if (glMinFilter == GL_LINEAR)						res += "Min Filter = GL_LINEAR\n";
+// 	else if (glMinFilter == GL_NEAREST)					res += "Min Filter = GL_NEAREST\n";
+// 	else if (glMinFilter == GL_NEAREST_MIPMAP_NEAREST)	res += "Min Filter = GL_NEAREST_MIPMAP_NEAREST\n";
+// 	else if (glMinFilter == GL_LINEAR_MIPMAP_NEAREST)	res += "Min Filter = GL_LINEAR_MIPMAP_NEAREST\n";
+// 	else if (glMinFilter == GL_NEAREST_MIPMAP_LINEAR)	res += "Min Filter = GL_NEAREST_MIPMAP_LINEAR\n";
+// 	else if (glMinFilter == GL_LINEAR_MIPMAP_LINEAR)	res += "Min Filter = GL_LINEAR_MIPMAP_LINEAR\n";
 
-	if (glMagFilter == GL_LINEAR)						res += "Mag Filter = GL_LINEAR\n";
-	else if (glMagFilter == GL_NEAREST)					res += "Mag Filter = GL_NEAREST\n";
+// 	if (glMagFilter == GL_LINEAR)						res += "Mag Filter = GL_LINEAR\n";
+// 	else if (glMagFilter == GL_NEAREST)					res += "Mag Filter = GL_NEAREST\n";
 
-	res += "Size = " + ct::toStr(w) + "," + ct::toStr(h) + "," + ct::toStr(d) + "\n";
+// 	res += "Size = " + ct::toStr(w) + "," + ct::toStr(h) + "," + ct::toStr(d) + "\n";
 
-	res += "----------------------------------------------\n";
+// 	res += "----------------------------------------------\n";
 
-	return res;
-}
+// 	return res;
+// }
 
 /////////////////////////////////////////////////////////////
 ///////// BUFFERS ///////////////////////////////////////////
