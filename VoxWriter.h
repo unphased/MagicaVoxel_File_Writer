@@ -28,7 +28,7 @@
 #ifndef __VOX_WRITER_H__
 #define __VOX_WRITER_H__
 
-#include "Tools.hpp"
+#include "cTools.h"
 #include <stdint.h>
 #include <string>
 #include <map>
@@ -213,7 +213,7 @@ namespace vox
 		int m_LimitZ;
 
 		FILE * m_File;
-		cAABBCC maxVolume;
+		ct::AABBCC<float> maxVolume;
 		std::vector<uint32_t> colors;
 		std::vector<VoxCube> cubes;
 		int maxCubeId;

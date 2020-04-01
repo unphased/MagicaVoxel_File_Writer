@@ -26,7 +26,7 @@
 // it support just my needs for the moment, but i put here because its a basis for more i thinck
 
 #include "VoxWriter.h"
-#include <stdio.h> 
+#include <cstdio>
 
 namespace vox
 {
@@ -614,7 +614,7 @@ namespace vox
 				c->tz = (int)((c->tz - minCubeZ + 0.5f) * limZ);
 
 				// not an animation in my case so only first frame frames[0]
-				trans.frames[0].Add("_t", toStr(c->tx) + " " + toStr(c->ty) + " " + toStr(c->tz));
+				trans.frames[0].Add("_t", ct::toStr(c->tx) + " " + ct::toStr(c->ty) + " " + ct::toStr(c->tz));
 				
 				shapeTransforms.push_back(trans);
 
@@ -679,9 +679,9 @@ namespace vox
 
 	bool VoxWriter::OpenFileForWriting(std::string vFilePathName)
 	{
-		lastError = fopen_s(&m_File, vFilePathName.c_str(), "wb");
-		if (lastError != 0)
-			return false;
+		m_File = fopen(vFilePathName.c_str(), "wb");
+		// if (lastError != 0)
+		// 	return false;
 		return true;
 	}
 
@@ -723,7 +723,7 @@ namespace vox
 
 	void VoxWriter::MergeVoxelInCube(uint32_t vX, uint32_t vY, uint32_t vZ, uint32_t vColorIndex, VoxCube *vCube)
 	{
-		maxVolume.Combine(cVec3((float)vX, (float)vY, (float)vZ));
+		maxVolume.Combine(ct::vec3<float>((float)vX, (float)vY, (float)vZ));
 
 		bool exist = false;
 
@@ -743,9 +743,9 @@ namespace vox
 		uint8_t y = (uint8_t)(vY % m_LimitY);
 		uint8_t z = (uint8_t)(vZ % m_LimitZ);
 
-		vCube->size.sizex = cMax<int>(vCube->size.sizex, x);
-		vCube->size.sizey = cMax<int>(vCube->size.sizey, y);
-		vCube->size.sizez = cMax<int>(vCube->size.sizez, z);
+		vCube->size.sizex = max(vCube->size.sizex, (int32_t)x);
+		vCube->size.sizey = max(vCube->size.sizey, (int32_t)y);
+		vCube->size.sizez = max(vCube->size.sizez, (int32_t)z);
 		
 		vCube->size.sizex = m_LimitX;
 		vCube->size.sizey = m_LimitY;
