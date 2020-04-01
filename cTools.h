@@ -59,7 +59,7 @@ using namespace cocos2d;
 #define SAFE_DELETE_GL_BUFFER(a) if (a > 0) glDeleteBuffers(1, &a), a = 0
 #define SAFE_DELETE_GL_VERTEX_ARRAY(a) if (a > 0) glDeleteVertexArrays(1, &a), a = 0
 #endif
-#include <Logger.h>
+#include "Logger.h"
 #define SAFE_DELETE(a) if (a != 0) delete a, a = 0
 #define SAFE_DELETE_ARRAY(a) if (a != 0) delete[] a, a = 0
 #endif
