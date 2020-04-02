@@ -27,7 +27,6 @@ int main() {
 				break;
 			}
 			nums[ct-1] = ti;
-			printf("read a %d\n", ti);
 		}
 		if (ct < 4) {
 			printf("invalid line %d \"%s\" has less than 4 numbers in it!\n", lineNr, line.c_str());
