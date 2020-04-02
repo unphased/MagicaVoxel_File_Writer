@@ -609,9 +609,10 @@ namespace vox
 				int limY = m_LimitY;
 				int limZ = m_LimitZ;
 				
-				c->tx = (int)((c->tx - minCubeX + 0.5f) * limX) - maxVolume.lowerBound.x - maxVolume.Size().x * 0.5f;
-				c->ty = (int)((c->ty - minCubeY + 0.5f) * limY) - maxVolume.lowerBound.y - maxVolume.Size().y * 0.5f;
-				c->tz = (int)((c->tz - minCubeZ + 0.5f) * limZ);
+				c->tx = floor(((c->tx - minCubeX + 0.5f) * limX) - maxVolume.lowerBound.x - maxVolume.Size().x * 0.5f);
+				c->ty = floor(((c->ty - minCubeY + 0.5f) * limY) - maxVolume.lowerBound.y - maxVolume.Size().y * 0.5f);
+				c->tz = floor((c->tz - minCubeZ + 0.5f) * limZ);
+				// printf("%d t: %d %d %d\n", i, c->tx, c->ty, c->tz);
 
 				// not an animation in my case so only first frame frames[0]
 				trans.frames[0].Add("_t", ct::toStr(c->tx) + " " + ct::toStr(c->ty) + " " + ct::toStr(c->tz));
