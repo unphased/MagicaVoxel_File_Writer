@@ -490,9 +490,9 @@ namespace vox
 		minCubeY = (int)1e5;
 		minCubeZ = (int)1e5;
 
-		maxCubeX = (int)-1e5;
-		maxCubeY = (int)-1e5;
-		maxCubeZ = (int)-1e5;
+		// maxCubeX = (int)-1e5;
+		// maxCubeY = (int)-1e5;
+		// maxCubeZ = (int)-1e5;
 		
 		// the limit of magicavoxel is 127 because the first is 1 not 0
 		// so this is 0 to 126
@@ -538,17 +538,17 @@ namespace vox
 	void VoxWriter::AddVoxel(uint32_t vX, uint32_t vY, uint32_t vZ, uint8_t vColorIndex)
 	{
 		// cube pos
-		int ox = (int)floor(vX / m_LimitX);
-		int oy = (int)floor(vY / m_LimitY);
-		int oz = (int)floor(vZ / m_LimitZ);
+		int ox = vX / m_LimitX;
+		int oy = vY / m_LimitY;
+		int oz = vZ / m_LimitZ;
 
 		minCubeX = min<int>(minCubeX, ox);
-		minCubeY = min<int>(minCubeX, oy);
-		minCubeZ = min<int>(minCubeX, oz);
+		minCubeY = min<int>(minCubeY, oy);
+		minCubeZ = min<int>(minCubeZ, oz);
 
-		maxCubeX = max<int>(maxCubeX, ox + 1);
-		maxCubeY = max<int>(maxCubeX, oy + 1);
-		maxCubeZ = max<int>(maxCubeX, oz + 1);
+		// maxCubeX = max<int>(maxCubeX, ox + 1);
+		// maxCubeY = max<int>(maxCubeY, oy + 1);
+		// maxCubeZ = max<int>(maxCubeZ, oz + 1);
 
 		auto cube = GetCube(ox, oy, oz);
 

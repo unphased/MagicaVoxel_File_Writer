@@ -220,9 +220,9 @@ namespace vox
 		int minCubeX;
 		int minCubeY;
 		int minCubeZ;
-		int maxCubeX;
-		int maxCubeY;
-		int maxCubeZ;
+		// int maxCubeX;
+		// int maxCubeY;
+		// int maxCubeZ;
 		std::map<int, std::map<int, std::map<int, int>>> cubesId;
 		std::map<int, std::map<int, std::map<int, int>>> voxelId;
 
