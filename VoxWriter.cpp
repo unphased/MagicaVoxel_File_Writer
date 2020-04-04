@@ -361,7 +361,7 @@ namespace vox
 
 	//////////////////////////////////////////////////////////////////
 
-	VoxWriter* VoxWriter::Create(std::string vFilePathName, int vLimitX, int vLimitY, int vLimitZ, errno_t *vError)
+	VoxWriter* VoxWriter::Create(std::string vFilePathName, int vLimitX, int vLimitY, int vLimitZ, int *vError)
 	{
 		VoxWriter * vox = new VoxWriter(vLimitX, vLimitY, vLimitZ);
 
@@ -379,7 +379,7 @@ namespace vox
 		return vox;
 	}
 
-	std::string VoxWriter::GetErrnoMsg(errno_t vError)
+	std::string VoxWriter::GetErrnoMsg(int vError)
 	{
 		std::string res;
 
@@ -509,7 +509,7 @@ namespace vox
 
 	}
 
-	errno_t VoxWriter::IsOk(std::string vFilePathName)
+	int VoxWriter::IsOk(std::string vFilePathName)
 	{
 		if (OpenFileForWriting(vFilePathName))
 		{

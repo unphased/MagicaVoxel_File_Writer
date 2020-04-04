@@ -9,6 +9,7 @@
 
 #include <iostream>
 #include <string>
+#include <climits>
 
 int main() {
 	int lineNr = 0;
