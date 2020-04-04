@@ -38,6 +38,7 @@ SOFTWARE.
 #include <iostream>
 #include <float.h>
 #include <chrono>
+#include <assert.h>
 
 #ifdef COCOS2D
 #include <cocos2d.h>

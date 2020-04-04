@@ -35,6 +35,7 @@ SOFTWARE.
 #include <cmath>
 #include <list>
 #include <string>
+#include <cstring>
 #include <map>
 #include <vector>
 #include <chrono>

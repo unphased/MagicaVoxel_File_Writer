@@ -192,8 +192,8 @@ namespace vox
 	class VoxWriter
 	{
 	public:
-		static VoxWriter* Create(std::string vFilePathName, int vLimitX, int vLimitY, int vLimitZ, errno_t *vError);
-		static std::string GetErrnoMsg(errno_t vError);
+		static VoxWriter* Create(std::string vFilePathName, int vLimitX, int vLimitY, int vLimitZ, int *vError);
+		static std::string GetErrnoMsg(int vError);
 
 	private:
 		int MV_VERSION;
@@ -226,12 +226,12 @@ namespace vox
 		std::map<int, std::map<int, std::map<int, int>>> cubesId;
 		std::map<int, std::map<int, std::map<int, int>>> voxelId;
 
-		errno_t lastError;
+		int lastError;
 
 	public:
 		VoxWriter(int vLimitX, int vLimitY, int vLimitZ);
 		~VoxWriter();
-		errno_t IsOk(std::string vFilePathName);
+		int IsOk(std::string vFilePathName);
 		void ClearVoxels();
 		void ClearColors();
 		void AddColor(uint8_t r, uint8_t g, uint8_t b, uint8_t a, uint8_t index);
