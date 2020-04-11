@@ -28,12 +28,12 @@ int main(int argc, char* argv[]) {
 			while(ss >> ti) {
 				if (++ct > 4) {
 					printf("invalid line %d \"%s\" has more than 4 numbers in it!\n", lineNr, line.c_str());
-					break;
+					continue;
 				}
 				nums[ct-1] = ti;
 			}
-			if (ct < 4) {
-				printf("invalid line %d \"%s\" has less than 4 numbers in it!\n", lineNr, line.c_str());
+			if (ct < 3) {
+				printf("invalid line %d \"%s\" has less than 3 numbers in it!\n", lineNr, line.c_str());
 				continue;
 			}
 			if (minX > nums[0]) { minX = nums[0]; }
@@ -42,7 +42,13 @@ int main(int argc, char* argv[]) {
 			data.push_back(nums[0]);
 			data.push_back(nums[1]);
 			data.push_back(nums[2]);
-			data.push_back(nums[3]);
+			if (ct == 3) {
+				data.push_back(255);
+			} else if (ct == 4) {
+				data.push_back(nums[3]);
+			} else {
+				printf("Should not be here\n");
+			}
 		}
 
 		if (minX < 0 || minY < 0 || minZ < 0) {
