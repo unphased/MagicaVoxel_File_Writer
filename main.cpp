@@ -19,6 +19,9 @@ int main(int argc, char* argv[]) {
 		int minX = INT_MAX;
 		int minY = INT_MAX;
 		int minZ = INT_MAX;
+		int maxX = INT_MIN;
+		int maxY = INT_MIN;
+		int maxZ = INT_MIN;
 		std::vector<unsigned int> data;
 		for (std::string line; std::getline(in, line); ++lineNr) { // parse input
 			int nums[4];
@@ -39,6 +42,9 @@ int main(int argc, char* argv[]) {
 			if (minX > nums[0]) { minX = nums[0]; }
 			if (minY > nums[1]) { minY = nums[1]; }
 			if (minZ > nums[2]) { minZ = nums[2]; }
+			if (maxX < nums[0]) { maxX = nums[0]; }
+			if (maxY < nums[1]) { maxY = nums[1]; }
+			if (maxZ < nums[2]) { maxZ = nums[2]; }
 			data.push_back(nums[0]);
 			data.push_back(nums[1]);
 			data.push_back(nums[2]);
@@ -56,7 +62,7 @@ int main(int argc, char* argv[]) {
 		} else {
 			minX = 0; minY = 0; minZ = 0;
 		}
-		vox::VoxWriter vox(126,126,126);
+		vox::VoxWriter vox(maxX,maxY,maxZ);
 		for (int i=0; i<data.size(); i+=4) {
 			// printf("position %d %d %d\n", data[i], data[i+1], data[i+2]);
 			// printf("adding voxel %d %d %d %d\n", data[i] - minX, data[i+1] - minY, data[i+2] - minZ, data[i+3]);
