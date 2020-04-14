@@ -62,7 +62,7 @@ int main(int argc, char* argv[]) {
 		} else {
 			minX = 0; minY = 0; minZ = 0;
 		}
-		vox::VoxWriter vox(maxX,maxY,maxZ);
+		vox::VoxWriter vox(maxX+1,maxY+1,maxZ+1);
 		for (int i=0; i<data.size(); i+=4) {
 			// printf("position %d %d %d\n", data[i], data[i+1], data[i+2]);
 			// printf("adding voxel %d %d %d %d\n", data[i] - minX, data[i+1] - minY, data[i+2] - minZ, data[i+3]);
